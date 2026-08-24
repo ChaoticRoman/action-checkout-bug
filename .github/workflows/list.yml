@@ -1,0 +1,17 @@
+name: List repository root
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  list-root:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.01
+
+      - name: List root directory
+        run: ls -la *
