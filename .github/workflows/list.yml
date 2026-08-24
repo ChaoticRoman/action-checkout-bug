@@ -2,8 +2,6 @@ name: List repository root
 
 on:
   push:
-  pull_request:
-  workflow_dispatch:
 
 jobs:
   list-root:
@@ -11,7 +9,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7.01
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          submodules: true
 
       - name: List root directory
         run: ls -la *
